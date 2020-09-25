@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Title from './Title/Title';
-import Feature from './Feature/Feature'
 import FeaturesList from './FeaturesList/FeaturesList'
 import Summary from './Summary/Summary'
 
