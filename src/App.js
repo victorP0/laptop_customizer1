@@ -47,7 +47,13 @@ class App extends Component {
   render() {
     const features = Object.keys(this.props.features).map((feature, idx) => {
       const featureHash = feature + '-' + idx;
-      const options = this.props.features[feature].map(function(item) { return (<Feature item={this.item} feature={this.feature} selectedItemName={this.state.selected} />)}, this);
+      const options = this.props.features[feature].map((item) => { 
+
+        console.log(feature);
+        let ble = feature;
+        console.log("\n\n\n\n"); 
+        return (<Feature item={item} feature={ble} selectedItemName={this.state.selected} updateFeature={this.updateFeature} />)
+      });
 
       return (
         <fieldset className="feature" key={featureHash}>

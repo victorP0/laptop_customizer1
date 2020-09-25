@@ -6,12 +6,17 @@ const USCurrencyFormat = new Intl.NumberFormat('en-US', {
     currency: 'USD'
   });
 
-const Feature = (item, feature, selectedItemName) => {
-
-const itemHash = slugify(JSON.stringify(item));
-console.log("feature LOWER CASED is " + JSON.stringify(feature));
-console.log("Also, selectedItemName is " + JSON.stringify(selectedItemName));
+const Feature = (props) => {
+console.log(this)
+const itemHash = slugify(JSON.stringify(props.item));
+console.log("feature LOWER CASED is " + JSON.stringify(props.feature));
+console.log("Also, selectedItemName is " + JSON.stringify(props.selectedItemName));
 console.log("");
+console.log(props.updateFeature)
+
+let item = props.item;
+let feature = props.feature;
+let selectedItemName = props.selectedItemName;
 return (
   <div key={itemHash} className="feature__item">
     <input
@@ -20,7 +25,7 @@ return (
       className="feature__option"
       name={slugify(feature.toString())}
       checked={item.name === selectedItemName}
-      onChange={e => this.updateFeature(feature, item)}
+      onChange={e => props.updateFeature(feature, item)}
     />
     <label htmlFor={itemHash} className="feature__label">
       {item.name} ({USCurrencyFormat.format(item.cost)})
